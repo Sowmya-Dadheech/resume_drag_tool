@@ -1,0 +1,378 @@
+
+\documentclass[a4paper,9pt]{extarticle} % use extarticle for 8pt support
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+
+%-----------------------------
+% Page formatting
+\pagestyle{fancy}
+\fancyhf{} 
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1in}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\setlist[itemize]{topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=1pt}  % compact itemize
+
+\urlstyle{rm}
+
+%-----------------------------
+% Section formatting
+\titleformat{\section}{
+  \vspace{-13pt}
+  \scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule 
+\vspace{-5pt}
+]
+
+%-----------------------------
+% Custom commands (no fixed size; scales with document class)
+\newcommand{\resumeItem}[2]{\item \textbf{#1}: #2
+% \vspace{-2pt}
+}
+\newcommand{\resumeItemWithoutTitle}[1]{\item #1
+% \vspace{-2pt}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  % \vspace{-1pt}
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}
+    % \vspace{-5pt}
+}
+
+\newcommand{\resumeSubheadingWithDetail}[5]{
+  \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}
+    #5
+    % \vspace{-5pt}
+}
+
+% \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-3pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}
+% \vspace{-5pt}
+}
+
+%-----------------------------
+% Hyperlinks
+\definecolor{linkblue}{HTML}{0077B5} % LinkedIn blue
+\hypersetup{
+    colorlinks=true,
+    urlcolor=linkblue,
+    hidelinks
+}
+
+\justifying
+
+%-----------------------------
+%%%%%%  CV STARTS HERE  %%%%%%
+
+\begin{document}
+\fontsize{9}{10}\selectfont
+% \fontsize{8}{10}\selectfont % Changed from {9}{12} to {8}{10}
+
+\noindent
+{\Huge \textbf{Niteesh Kumar Soundra Pandian}}
+
+\vspace{6pt}
+\noindent
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   MS in  Data Science at University of Washington, Seattle & Mobile: +1 2065795098 \\
+%    Email: \href{mailto:}{nksp2@uw.edu} & 
+%    \href{https://www.linkedin.com/in/niteesh-kumar-s/}{\textcolor{linkblue}{LinkedIn}}
+%    % \textbar{} 
+%    % \href{https://medium.com/@niteesh.k.cl}{\textcolor{linkblue}{Medium}}
+% \end{tabular*}
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  MS in Data Science at University of Washington, Seattle & Mobile: +1 2065795098 \\
+  Email: \href{mailto:nksp2@uw.edu}{nksp2@uw.edu} & 
+\href{https://niteeshkcl-create.github.io/niteesh.github.io/}{\textcolor{linkblue}{Portfolio}} $|$ 
+\href{https://www.linkedin.com/in/niteesh-kumar-s/}{\textcolor{linkblue}{LinkedIn}} $|$ 
+\href{https://github.com/niteeshkcl-create}{\textcolor{linkblue}{GitHub}}
+\end{tabular*}
+
+
+
+% \vspace{5pt}
+\section{Education}
+% \vspace{5pt}
+\begin{itemize}
+  \item \textbf{Master of Science - Data Science} \hfill Sep 2025 – Mar 2027\\
+  \textbf{University of Washington, Seattle, USA}, 
+  Grade: 3.85 \\
+  Courses: CSE 517 NLP, DATA 556 Intro to Stat \& Prob, DATA 557 Applied Statistics and Experimental Design \\
+  \vspace{-10pt}
+  \item 
+  \textbf{B.Tech - Instrumentation \& Control(Major), Computer Science(Minor)} \hfill Jul 2018 – May 2022\\
+  \textbf{National Institute of Technology, Tiruchirappalli, India}\\
+  % Grade: 3.41/4
+\end{itemize}
+
+
+
+	    
+
+% 
+
+ \vspace{-10pt}
+\section{Experience}
+ \vspace{-6pt}
+
+
+\resumeSubheadingWithDetail{Applied Scientist Consultant}{Seattle, USA}
+{Woods Coffee | Data Science Society at UW}{Jan 2026 – Present}
+\resumeItemListStart
+    \resumeItemWithoutTitle{Conducting a \textbf{quantitative analysis of existing portfolios} utilizing \textbf{causal inference} and correlation to identify \textbf{revenue drivers} and determine the impact of demographic factors on asset performance.}
+    \resumeItemWithoutTitle{Developing multivariate statistical models to maximize profitability and support \textbf{investment decisions} for future site selections.}
+\resumeItemListEnd
+
+
+ 
+\resumeSubheadingWithDetail{Teaching Assistant}{Seattle, USA}
+{Foster School of Business, University of Washington}{Sep 2025 – Dec 2025}
+\resumeItemListStart
+    % \resumeItemWithoutTitle{Supported instruction, grading, and student guidance for \textbf{MKTG 466: Digital Marketing Analytics}, with emphasis on effectively applying \textbf{data science techniques} for \textbf{marketing optimization} and \textbf{predictive analytics} in student projects.}
+    
+    % \resumeItemWithoutTitle{Guided 40+ students in applying \textbf{ML models} and building \textbf{interactive dashboards} for analytical decision-making.}
+
+\resumeItemWithoutTitle{Leading technical instruction and mentoring \textbf{40+ students} in \textbf{MKTG 466: Digital Marketing Analytics} on applying \textbf{statistical modeling}, \textbf{predictive analytics}, and \textbf{Tableau-based dashboarding} for marketing optimization.}
+
+
+
+
+\resumeItemListEnd
+
+
+
+\resumeSubheadingWithDetail{Data Scientist – l}{Bengaluru, India}
+{TATA CLiQ E-commerce (Full-time)}{Jul 2022 – Aug 2025}
+
+
+
+
+\resumeItemListStart
+
+    % \resumeItemWithoutTitle{Built a lightweight \textbf{ALBERT-based multi-task query understanding model} for category and intent prediction, reducing long-tail errors. Applied token-pruning to optimize inference latency, contributing to improving precision from \textbf{57\% to 71\%}.}
+
+    \resumeItemWithoutTitle{Implemented an \textbf{ALBERT-based Multi-Task Query Parser} for search category and intent prediction; achieved a \textbf{2\% lift in average CTR} and boosted \textbf{precision from 57\% to 71\%} using Dropout Regularization and noise filtering.}
+
+    \resumeItemWithoutTitle{Developed a \textbf{CatBoost-based RTO risk model} using behavioral, logistics, and seller-level features. Collaborated with product and operations teams on thresholding and workflow integration, \textbf{reducing fraudulent return-to-origin by 4\%}.}
+
+    % \resumeItemWithoutTitle{Designed a \textbf{lightweight relevance scoring layer} combining engagement-driven feature signals across \textbf{1.2M SKUs}, with an integrated \textbf{business-led boosting system} for priority products, improving ranking and delivering a \textbf{2\% CTR gain}.}
+
+    \resumeItemWithoutTitle{Designed a \textbf{lightweight relevance scoring layer} which improved ranking and delivered a \textbf{2\% CTR gain} by combining engagement-driven features across \textbf{1.2M SKUs}, with an integrated \textbf{business-led boosting system} for priority products.}
+
+    \resumeItemWithoutTitle{Improved \textbf{Wishlist Recovery} by implementing a \textbf{hybrid similarity model} that combined BERT-based product embeddings with user-item signals to recommend substitutes for unavailable items, increasing interaction rates from \textbf{7\%} to \textbf{15\%}.}
+
+    \resumeItemWithoutTitle{\textbf{Fine-tuned} an \textbf{XGBoostRanker} for \textbf{Search Listing Page ranking} by using updated session-item features; validated via \textbf{A/B testing}(\textbf{95\%} statistical significance), delivering an \textbf{NDCG@40 gain} from \textbf{0.76} to \textbf{0.84} and mitigating data drift.}
+
+    \resumeItemWithoutTitle{Boosted \textbf{CRM personalization} by generating customer–brand affinity vectors using \textbf{prod2vec-style sequence embeddings} using browse and purchase data, and integrating into targeting workflows; lifting interaction rates from \textbf{18\%} to \textbf{27\%}.}
+
+    % \resumeItemWithoutTitle{Built a low-latency \textbf{autosuggestion ranker} using \textbf{Gradient-Boosted Trees} with recency, popularity, and click-behavior data, with a \textbf{seasonal query-boosting mechanism} for business teams, improving \textbf{suggestion and engagement by 3\%}.}
+
+    \resumeItemWithoutTitle{Built a low-latency \textbf{autosuggestion ranker} via \textbf{SageMaker endpoints} which improved \textbf{engagement by 3\%} using \textbf{Gradient-Boosted Trees} with recency, popularity, and behavior data, with a \textbf{seasonal query-boosting mechanism}.}
+
+    
+\resumeItemListEnd
+
+
+\resumeSubheadingWithDetail{DL Research Intern}{Tiruchirapalli, India}
+{National Institute of Technology, Tiruchirapalli, India}{Jan 2022 – Jun 2022}
+
+\resumeItemListStart
+    %   \resumeItemWithoutTitle{Built a CNN-based classifier for \textbf{knee osteoarthritis} and \textbf{muscle injury} detection using a curated dataset of \textbf{~160K X-ray and ultrasound images}, applying \textbf{transfer learning} (Xception) and heavy augmentation to address class imbalance.}
+
+    % \resumeItemWithoutTitle{Fine-tuned the \textbf{Xception} model and achieved \textbf{86\% cross-validated accuracy}, collaborating with biomedical researchers to integrated predictions with an \textbf{SMA-based actuation prototype} supporting physiotherapy feedback and rehabilation.}
+    \resumeItemWithoutTitle{Developed an \textbf{Xception-based CNN} for \textbf{orthopedic injury detection} using \textbf{160K images} and addressing class imbalance, achieving \textbf{86\% accuracy} and integrating predictions into an \textbf{SMA-actuated prototype} for rehabilitation feedback.}
+
+
+
+\resumeItemListEnd
+
+
+%-----------PROJECTS-----------------
+% \vspace{5pt}
+\section{Projects}
+% \vspace{5pt}
+\resumeSubHeadingListStart
+
+
+
+\item \textbf{Self-Training Based Document-Level NMT (English–Tamil)}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+  % \item Developed a document-level Neural Machine Translation system by extending MarianMT with self-training, hybrid loss, and span-level context injection, addressing cross-sentence dependencies and reducing inconsistencies in low-resource settings.
+  
+
+  % \resumeItemWithoutTitle{Implemented a document-level English→Tamil NMT system by extending MarianMT with context windows, sentence-level back-translation, and self-training on unlabeled corpora, improving BLEU score by +4.9\% compared to the baseline.}
+
+
+  % \item Enhanced Transformer models with BERTScore-based semantic loss, context-aware fine-tuning, and progressive adaptation (MMT + FT + HL + Span), delivering gains in BLEU, semantic fidelity, discourse coherence, and translation stability.
+
+  \resumeItemWithoutTitle{Implemented a document-level English→Tamil NMT system by extending MarianMT with context windows, \textbf{sentence-level back-translation}, and \textbf{self-training} on unlabeled corpora, improving \textbf{BLEU score by +4.7\%} compared to the baseline.}
+
+\resumeItemWithoutTitle{Enhanced models with \textbf{BERTScore-based semantic loss}, \textbf{context-aware fine-tuning}, and \textbf{progressive adaptation (MMT + FT + HL + Span)}, delivering gains in BLEU, semantic fidelity, discourse coherence, and translation stability.}
+
+
+
+
+
+\end{itemize}
+
+
+\item \textbf{MoLoRAG: Multi-modal Logic-aware RAG (Qwen2.5-VL, LoRA, PyTorch)}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \resumeItemWithoutTitle{Developed a high-performance retrieval system for long-form multi-modal documents, implementing a \textbf{hierarchical graph-based traversal} to maintain logical coherence across text and images.}
+    \resumeItemWithoutTitle{Fine-tuned a \textbf{Vision-Language Model (Qwen2.5-VL-3B)} using \textbf{LoRA} and \textbf{PEFT} for logical relevance scoring, addressing complex reasoning gaps in standard RAG pipelines.}
+    \resumeItemWithoutTitle{Engineered a scalable preprocessing pipeline for \textbf{MMLongBench} and \textbf{LongDocURL} datasets, utilizing \textbf{CLIP-based embeddings} and \textbf{bitsandbytes} for memory-efficient 4-bit quantization during inference.}
+    \resumeItemWithoutTitle{Evaluated system performance using a custom suite, benchmarking \textbf{top-k retrieval accuracy} and semantic fidelity against industry baselines like M3DocRAG.}
+\end{itemize}
+
+\item \textbf{High-Frequency Alpha-Agent (FinTech, DQN, FinBERT)}
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item Developed a \textbf{Deep Q-Network (PyTorch)} to optimize for the \textbf{Sharpe Ratio}. Integrated a \textbf{FinBERT NLP pipeline} to process financial sentiment as auxiliary state features.
+    \item Implemented \textbf{SHAP} to provide model interpretability for "Buy/Sell" decisions, ensuring transparency in AI-led financial advice.
+    
+
+\end{itemize}
+\resumeSubHeadingListEnd
+
+
+% \vspace{5pt}
+\section{Skills Summary}
+% \vspace{5pt}
+\resumeSubHeadingListStart
+
+% \item \textbf{Programming Languages:} Python, SQL, C++, R
+
+% \item \textbf{Machine Learning \& Deep Learning (NLP and LLM):} 
+% Scikit-learn, XGBoost, CatBoost, TensorFlow, JAX, PyTorch, Keras, CNNs (Xception), Statistical Modeling, Transfer Learning
+% , NLTK, Gensim (Word2Vec), BERT, ALBERT, Tokenization, Contextual Embeddings, LangChain, LlamaIndex, RAG, Transformers, Data Version Control
+
+% \item \textbf{Cloud \& Tools:} 
+% AWS (EC2, S3, SageMaker), Airflow, Git, Jira, Spark, Streamlit, Docker, Tableau, Jenkins, Feature Stores
+
+% \item \textbf{Programming Languages:} Python, SQL, C++, R
+
+% \item \textbf{Machine Learning & Deep Learning(NLP and LLM):}
+% Scikit-learn, XGBoost, CatBoost, TensorFlow, PyTorch, Keras, CNNs (Xception), Statistical Modeling, Transfer Learning, NLTK, Word2Vec, BERT, ALBERT, Transformers, Tokenization, Contextual Embeddings, LangChain, LlamaIndex, RAG, Data Version Control, Hyperparameter Optimization, Reinforcement
+
+% \item \textbf{Cloud & Tools:}
+% AWS (EC2, S3, SageMaker), Airflow, Git, Jira, Spark, Streamlit, Docker, Tableau, Jenkins, MLflow, Kubernetes
+
+% \item \textbf{Programming Languages:} Python, SQL, C++, R
+
+% \item \textbf{Machine Learning:}
+% Scikit-learn, XGBoost, CatBoost, Statistical Modeling, Feature Engineering, Model Evaluation, Hyperparameter Optimization, Time Series Modeling
+
+% \item \textbf{Deep Learning:}
+% TensorFlow, PyTorch, Keras, CNNs, RNNs, LSTMs, Attention Mechanisms, Transfer Learning, Model Optimization (Quantization, Pruning)
+
+% \item \textbf{NLP \& LLMs:}
+% HuggingFace Transformers, NLTK, SpaCy, Word2Vec, BERT, ALBERT, T5, GPT-based Models, Tokenization, Embedding Models, Prompt Engineering, LangChain, LlamaIndex, RAG Pipelines, Vector Databases (FAISS, Chroma), Fine-tuning (LoRA, QLoRA, PEFT)
+
+% \item \textbf{MLOps:}
+% MLflow, Airflow, DVC (Data Version Control), Docker, Kubernetes, GitHub Actions, Jenkins, Model Deployment (FastAPI, REST APIs)
+
+% \item \textbf{Cloud Platforms:}
+% AWS (EC2, S3, Lambda, SageMaker)
+
+% \item \textbf{Data Engineering \& Visualization:}
+% Apache Spark, Pandas, NumPy, SQL Optimization, Tableau, Power BI, Streamlit
+\item \textbf{AI \& Agentic Frameworks:} \textbf{Agentic AI Workflows}, \textbf{LLM Orchestration}, \textbf{LangChain}, \textbf{LlamaIndex}, \textbf{RAG Pipelines}, \textbf{Prompt Engineering}, Vector Databases (FAISS, Milvus), Evaluation \& Trust Loops.
+\item \textbf{Deep Learning \& NLP:} \textbf{Transformers}, BERT, ALBERT, PyTorch, TensorFlow, Reinforcement Learning, Multi-Task Learning, \textbf{Causal Inference}, Statistical Modeling.
+\item \textbf{Software Engineering \& Cloud:} \textbf{Python}, Go, SQL (Advanced), \textbf{AWS (SageMaker, S3, EC2, Lambda)}, \textbf{Snowflake}, Apache Spark, Airflow, MLflow, Docker, Kubernetes.
+
+
+% \item \textbf{Technical Skills \& Frameworks:} 
+% Python, SQL, C++, R, Scikit-learn, XGBoost, CatBoost, Statistical Modeling, Feature Engineering, Model Evaluation, Hyperparameter Optimization, Time Series Modeling, TensorFlow, PyTorch, Keras, CNNs, RNNs, LSTMs, Attention Mechanisms, Transfer Learning, Model Optimization (Quantization, Pruning), HuggingFace Transformers, NLTK, SpaCy, Word2Vec, BERT, ALBERT, T5, GPT-based Models, Tokenization, Embedding Models, Prompt Engineering, LangChain, LlamaIndex, RAG Pipelines, Vector Databases (FAISS, Chroma), Fine-tuning (LoRA, QLoRA, PEFT), MLflow, Airflow, DVC (Data Version Control), Docker, Kubernetes, GitHub Actions, Jenkins, Model Deployment (FastAPI, REST APIs), AWS (EC2, S3, Lambda, SageMaker), Apache Spark, Pandas, NumPy, SQL Optimization, Tableau, Power BI, Streamlit.
+
+
+
+\resumeSubHeadingListEnd
+
+
+
+% ----------------- PUBLICATIONS -----------------
+% \vspace{5pt}
+\section{Publications}
+% \vspace{5pt}
+\resumeSubHeadingListStart
+
+\item \textbf{Uncertainty-aware Contextual Multi-armed Bandits for Recommendations in E-commerce}
+\begin{itemize}[noitemsep, topsep=0pt, leftmargin=*]
+    \item Published in \textit{IAES International Journal of Artificial Intelligence (IJ-AI)}, 2025. Proposed a contextual bandit-based approach incorporating uncertainty estimation to improve recommendation relevance in e-commerce.\href{https://www.researchgate.net/publication/392485072_Uncertainty-aware_contextual_multi-armed_bandits_for_recommendations_in_e-commerce}{View Publication on \underline{ResearchGate}.}
+\end{itemize}
+
+\resumeSubHeadingListEnd
+
+% %-----------Awards-----------------
+% \section{Awards}
+% \resumeSubHeadingListStart
+
+% \item Awarded 3\textsuperscript{rd} place in the Databricks X Data Science Hackathon 2025 for innovative use of machine learning and data analytics.
+
+% \item Best Performance Award in Q3 FY 2023 and Q1 FY 2025 at Tata Cliq.
+
+% \item ``Innovation in AI/ML Services'' Award, AWS AI Conclave – 2023.
+
+% \resumeSubHeadingListEnd
+
+
+
+
+% \vspace{1 pt}
+% %-----------Awards-----------------
+% \section{Honors and Awards}
+% \vspace{5pt}
+% \begin{description}[font=$\bullet$]
+%   \item {Best Performance Award in Q3 FY 2023 and Q1 FY 2025 at Tata Cliq}
+%   \vspace{-5pt}
+%   \item {\textquotedblleft Best Use of AI for Personalization Recommendations\textquotedblright, Data Analytics AI Show – 2024}
+%   \vspace{-5pt}
+%   \item {\textquotedblleft Innovation in AI/ML Services\textquotedblright{} Award, AWS AI Conclave – 2023}
+
+% \vspace{-5pt}
+% \section{Volunteer Experience}
+%   \resumeSubHeadingListStart
+% 	\resumeSubheading
+%     {Community Lead at Developer Student Clubs NSEC}{Kolkata, India}
+%     {Conducted online and offline technical \& soft-skills training impacting over 3000 students.}{Jan 2019 - Present}
+% \vspace{5pt}
+%     % \vspace{10pt}\textbf{\large{Community Experience}}
+%     \resumeSubheading
+%     {Event Organizer at Google Developers Group Kolkata}{Kolkata, India}
+%     {Organized events, conducted workshops and delivered workshops reaching over 7000 developers.}{Jan 2018 - Present}
+
+% \resumeSubHeadingListEnd
+
+\end{document}
