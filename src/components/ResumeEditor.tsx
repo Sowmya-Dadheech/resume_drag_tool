@@ -177,11 +177,16 @@ export function ResumeEditor() {
         return;
       }
 
-      const blob = await response.blob();
-      const pdfBlob = new Blob([blob], { type: "application/pdf" });
-      const blobUrl = URL.createObjectURL(pdfBlob);
-
-      setPreviewPdfUrl(blobUrl);
+      const pdfId = response.headers.get("X-PDF-Id");
+      if (pdfId) {
+        setPreviewPdfId(pdfId);
+        setPreviewPdfUrl(`/api/download/${pdfId}?inline=true`);
+      } else {
+        const blob = await response.blob();
+        const pdfBlob = new Blob([blob], { type: "application/pdf" });
+        const blobUrl = URL.createObjectURL(pdfBlob);
+        setPreviewPdfUrl(blobUrl);
+      }
     } catch (error: any) {
       console.warn("PDF preview network info:", error);
       alert(`Error loading PDF preview: ${error?.message || "Unknown error"}`);
@@ -405,19 +410,13 @@ export function ResumeEditor() {
                 </button>
               </div>
             </div>
-            <div className="flex-1 bg-[#525659] relative">
+            <div className="flex-1 bg-slate-950 relative overflow-hidden">
               {previewPdfUrl ? (
-                <object 
-                  data={previewPdfUrl} 
-                  type="application/pdf" 
-                  className="w-full h-full"
-                >
-                  <iframe 
-                    src={previewPdfUrl} 
-                    className="w-full h-full border-0"
-                    title="PDF Preview"
-                  />
-                </object>
+                <iframe 
+                  src={`${previewPdfUrl}#toolbar=0`} 
+                  className="w-full h-full border-0"
+                  title="PDF Preview"
+                />
               ) : (
                 <div className="flex flex-col items-center justify-center h-full text-slate-300 gap-3">
                   <div className="w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>

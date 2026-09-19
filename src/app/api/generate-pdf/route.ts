@@ -1,13 +1,16 @@
 import { NextResponse } from "next/server";
+import { downloadCache } from "@/lib/downloadCache";
+import { v4 as uuidv4 } from "uuid";
 
 function sanitizeLatex(latex: string): string {
   if (!latex) return "";
   let sanitized = latex;
-  // Replace math-mode pipe variations in text blocks ($|$, |$|, $|, |$)
-  sanitized = sanitized.replace(/\$\|\$/g, " -- ");
-  sanitized = sanitized.replace(/\|\$\|/g, " -- ");
-  sanitized = sanitized.replace(/\$\|/g, " -- ");
-  sanitized = sanitized.replace(/\|\$/g, " -- ");
+  // Replace math-mode pipe variations and double dashes for pdflatex font safety
+  sanitized = sanitized.replace(/\$\|\$/g, " - ");
+  sanitized = sanitized.replace(/\|\$\|/g, " - ");
+  sanitized = sanitized.replace(/\$\|/g, " - ");
+  sanitized = sanitized.replace(/\|\$/g, " - ");
+  sanitized = sanitized.replace(/--/g, "-");
   return sanitized;
 }
 
@@ -57,15 +60,26 @@ export async function POST(request: Request) {
     }
 
     const pdfBuffer = await response.arrayBuffer();
+    const id = uuidv4();
+    const filename = `${title || "resume"}.pdf`;
+
+    // Cache the PDF so it can be served cleanly via /api/download/[id]?inline=true
+    downloadCache.set(id, {
+      data: Buffer.from(pdfBuffer),
+      contentType: "application/pdf",
+      filename,
+    });
 
     return new Response(pdfBuffer, {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": `attachment; filename="${encodeURIComponent(title || "resume")}.pdf"`,
+        "Content-Disposition": `attachment; filename="${encodeURIComponent(filename)}"`,
+        "X-PDF-Id": id,
       },
     });
   } catch (error: any) {
     return NextResponse.json({ error: `Server error: ${error.message}` }, { status: 500 });
   }
 }
+

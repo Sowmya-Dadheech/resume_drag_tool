@@ -65,12 +65,13 @@ export function parseLatexToLibrary(latex: string): LibraryBlock[] {
         }
       });
     } else if (type === "education" || type === "skills") {
-      const items = sectionContent.split(/(?=\\item \\textbf)/);
+      const items = sectionContent.split(/(?=\\resumeSubheading|\\item \\textbf)/);
       items.forEach((item, idx) => {
         const cleanItem = item.replace(/\\begin{itemize}/g, "").replace(/\\end{itemize}/g, "").replace(/\\resumeSubHeadingListStart/g, "").replace(/\\resumeSubHeadingListEnd/g, "").trim();
-        if (!cleanItem || !cleanItem.includes("\\item")) return;
+        if (!cleanItem) return;
+        const subMatch = cleanItem.match(/\\resumeSubheading\s*\{([^}]*)\}/);
         const titleMatch = cleanItem.match(/\\textbf{([^}]*)}/);
-        const title = titleMatch ? titleMatch[1].replace(/:$/, "").trim() : `${type.charAt(0).toUpperCase() + type.slice(1)} ${idx + 1}`;
+        const title = subMatch ? subMatch[1].trim() : (titleMatch ? titleMatch[1].replace(/:$/, "").trim() : `${type.charAt(0).toUpperCase() + type.slice(1)} ${idx + 1}`);
         blocks.push({ id: uuidv4(), type, title, content: cleanItem });
       });
     } else {
@@ -82,7 +83,7 @@ export function parseLatexToLibrary(latex: string): LibraryBlock[] {
 }
 
 export function generateFullLatex(blocks: LibraryBlock[], preamble: string): string {
-  let latex = preamble + "\n\\begin{document}\n\\fontsize{9.5}{12}\\selectfont\n";
+  let latex = preamble + "\n\\begin{document}\n\\fontsize{9pt}{11pt}\\selectfont\n";
   
   // Header block check
   const headerBlock = blocks.find(b => b.type === "header");

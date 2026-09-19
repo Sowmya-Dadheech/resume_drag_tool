@@ -79,22 +79,21 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
     const pubBlocks = loadedBlocks.filter(b => b.type === "publications").map(b => ({ ...b, id: uuidv4() }));
 
-    // Master Resume: 4 Full Projects + 4 Experiences + 2 Education + Skills + Publications = 1 PAGE
+    // Master Resume: 3 Experiences + 3 Projects + 2 Education + Skills + Publications = 1 PAGE
     const masterProjects = findBlocks([
       "Battery Health",
       "SEC 8-K",
-      "Autism Detection",
       "CausalSCM"
     ]);
 
     const p1Id = uuidv4();
     const masterProject: ResumeProject = {
       id: p1Id,
-      title: "Sowmya Dadheech - Master Resume (4 Projects 1-Page)",
+      title: "Sowmya Dadheech - Master Resume (1-Page)",
       blocks: [
         ...(headerBlock ? [{ ...headerBlock, id: uuidv4() }] : []),
         ...eduBlocks,
-        ...expBlocks,
+        ...expBlocks.slice(0, 3),
         ...masterProjects,
         ...findSkillBlock("Technical"),
         ...pubBlocks,

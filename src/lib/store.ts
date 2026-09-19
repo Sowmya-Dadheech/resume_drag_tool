@@ -1,7 +1,7 @@
 import { AppState, ResumeProject } from "./types";
 import { v4 as uuidv4 } from "uuid";
 
-const STORAGE_KEY = "resume_dragger_library_v5";
+const STORAGE_KEY = "resume_dragger_library_v6";
 
 export const getInitialState = (): AppState => {
   if (typeof window !== "undefined") {
