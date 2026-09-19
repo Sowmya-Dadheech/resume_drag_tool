@@ -9,8 +9,8 @@ export const REFERENCE_LATEX = String.raw`
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   B.S. in Computer Science at Example University, CA & Mobile: +1 1234567890 \\
   Email: \href{mailto:johndoe@example.com}{johndoe@example.com} & 
-\href{https://example.com/}{\textcolor{linkblue}{Portfolio}} $|$ 
-\href{https://www.linkedin.com/in/johndoe/}{\textcolor{linkblue}{LinkedIn}} $|$ 
+\href{https://example.com/}{\textcolor{linkblue}{Portfolio}} -- 
+\href{https://www.linkedin.com/in/johndoe/}{\textcolor{linkblue}{LinkedIn}} -- 
 \href{https://github.com/johndoe}{\textcolor{linkblue}{GitHub}}
 \end{tabular*}
 

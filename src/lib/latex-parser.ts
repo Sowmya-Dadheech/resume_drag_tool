@@ -91,7 +91,7 @@ export function generateFullLatex(blocks: LibraryBlock[], preamble: string): str
   } else {
     latex += `\\begin{tabular*}{1.0\\textwidth}{l@{\\extracolsep{\\fill}}r}
   \\textbf{\\Huge Sowmya Dadheech} & Mobile: +1 (206) 579-0694 \\\\
-  MS in Data Science at University of Washington, Seattle & \\href{https://sowmyadadheech.com}{\\textcolor{linkblue}{Portfolio}} $|$ \\href{https://linkedin.com/in/sowmya-dadheech}{\\textcolor{linkblue}{LinkedIn}} $|$ \\href{https://github.com/Sowmya-Dadheech-20}{\\textcolor{linkblue}{GitHub}} \\\\
+  MS in Data Science at University of Washington, Seattle & \\href{https://sowmyadadheech.com}{\\textcolor{linkblue}{Portfolio}} -- \\href{https://linkedin.com/in/sowmya-dadheech}{\\textcolor{linkblue}{LinkedIn}} -- \\href{https://github.com/Sowmya-Dadheech-20}{\\textcolor{linkblue}{GitHub}} \\\\
   Email: \\href{mailto:sowmya20@uw.edu}{\\textcolor{linkblue}{sowmya20@uw.edu}} & \\\\
 \\end{tabular*}
 \\vspace{-8pt}
