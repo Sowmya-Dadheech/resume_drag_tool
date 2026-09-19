@@ -6,7 +6,6 @@ import { ProjectSidebar } from "@/components/ProjectSidebar";
 import { ResumeEditor } from "@/components/ResumeEditor";
 import { Menu, X, Printer, Download } from "lucide-react";
 import { clsx } from "clsx";
-import { REFERENCE_LATEX } from "@/lib/reference-latex";
 
 function MainContent() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -56,7 +55,7 @@ function MainContent() {
 
 export default function Home() {
   return (
-    <AppProvider referenceLatex={REFERENCE_LATEX}>
+    <AppProvider>
       <MainContent />
     </AppProvider>
   );

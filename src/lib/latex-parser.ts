@@ -82,23 +82,21 @@ export function parseLatexToLibrary(latex: string): LibraryBlock[] {
 }
 
 export function generateFullLatex(blocks: LibraryBlock[], preamble: string): string {
-  let latex = preamble + "\n\\begin{document}\n\\fontsize{9}{10}\\selectfont\n";
+  let latex = preamble + "\n\\begin{document}\n\\fontsize{9.5}{12}\\selectfont\n";
   
-  // Hardcoded unchangeable main header block
-  latex += `
-\\noindent
-{\\Huge \\textbf{John Doe}}
-
-\\vspace{6pt}
-\\noindent
-\\begin{tabular*}{\\textwidth}{l@{\\extracolsep{\\fill}}r}
-  B.S. in Computer Science at Example University & Mobile: +1 1234567890 \\\\
-  Email: \\href{mailto:johndoe@example.com}{johndoe@example.com} & 
-\\href{https://example.com/}{\\textcolor{linkblue}{Portfolio}} $|$ 
-\\href{https://www.linkedin.com/in/johndoe/}{\\textcolor{linkblue}{LinkedIn}} $|$ 
-\\href{https://github.com/johndoe}{\\textcolor{linkblue}{GitHub}}
+  // Header block check
+  const headerBlock = blocks.find(b => b.type === "header");
+  if (headerBlock) {
+    latex += headerBlock.content.trim() + "\n\n";
+  } else {
+    latex += `\\begin{tabular*}{1.0\\textwidth}{l@{\\extracolsep{\\fill}}r}
+  \\textbf{\\Huge Sowmya Dadheech} & Mobile: +1 (206) 579-0694 \\\\
+  MS in Data Science at University of Washington, Seattle & \\href{https://sowmyadadheech.com}{\\textcolor{linkblue}{Portfolio}} $|$ \\href{https://linkedin.com/in/sowmya-dadheech}{\\textcolor{linkblue}{LinkedIn}} $|$ \\href{https://github.com/Sowmya-Dadheech-20}{\\textcolor{linkblue}{GitHub}} \\\\
+  Email: \\href{mailto:sowmya20@uw.edu}{\\textcolor{linkblue}{sowmya20@uw.edu}} & \\\\
 \\end{tabular*}
+\\vspace{-8pt}
 `;
+  }
   
   const types: BlockType[] = ["education", "experience", "projects", "skills", "publications"];
   
@@ -111,8 +109,8 @@ export function generateFullLatex(blocks: LibraryBlock[], preamble: string): str
       
       const needsList = type === "experience" || type === "projects" || type === "education" || type === "skills";
       if (needsList) {
-        const listStart = type === "experience" || type === "projects" || type === "skills" ? "\\resumeSubHeadingListStart\n" : "\\begin{itemize}\n";
-        const listEnd = type === "experience" || type === "projects" || type === "skills" ? "\\resumeSubHeadingListEnd\n" : "\\end{itemize}\n";
+        const listStart = "\\resumeSubHeadingListStart\n";
+        const listEnd = "\\resumeSubHeadingListEnd\n";
         
         latex += listStart;
         typeBlocks.forEach((b, idx) => {

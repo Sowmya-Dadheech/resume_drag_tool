@@ -1,18 +1,27 @@
 import { NextResponse } from "next/server";
 
+function sanitizeLatex(latex: string): string {
+  if (!latex) return "";
+  let sanitized = latex;
+  // Replace math-mode pipe variations in text blocks ($|$, |$|, $|, |$)
+  sanitized = sanitized.replace(/\$\|\$/g, " -- ");
+  sanitized = sanitized.replace(/\|\$\|/g, " -- ");
+  sanitized = sanitized.replace(/\$\|/g, " -- ");
+  sanitized = sanitized.replace(/\|\$/g, " -- ");
+  return sanitized;
+}
+
 export async function POST(request: Request) {
   try {
-    const { latex, title } = await request.json();
+    const { latex: rawLatex, title } = await request.json();
 
-    if (!latex) {
+    if (!rawLatex) {
       return NextResponse.json({ error: "LaTeX content is required" }, { status: 400 });
     }
 
-    // Using LaTeX-on-HTTP service
-    // Endpoint: https://latex.ytotech.com/request.php
-    // Parameters: code, format=pdf
-    
-    // Using the newer LaTeX-on-HTTP endpoint
+    const latex = sanitizeLatex(rawLatex);
+
+    // Call LaTeX-on-HTTP endpoint
     const response = await fetch("https://latex.ytotech.com/builds/sync", {
       method: "POST",
       headers: {
@@ -31,30 +40,32 @@ export async function POST(request: Request) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error("LaTeX service error:", errorText);
-      return NextResponse.json({ error: `LaTeX compilation failed: ${errorText}` }, { status: 500 });
+      let userFriendlyMessage = "LaTeX compilation failed.";
+      try {
+        const parsedError = JSON.parse(errorText);
+        if (parsedError.log_files && parsedError.log_files["__main_document__.log"]) {
+          const log = parsedError.log_files["__main_document__.log"];
+          const lineMatch = log.match(/l\.(\d+)\s+(.*)/);
+          if (lineMatch) {
+            userFriendlyMessage = `LaTeX error at line ${lineMatch[1]}: ${lineMatch[2].slice(0, 100)}`;
+          }
+        }
+      } catch (e) {
+        userFriendlyMessage = errorText.slice(0, 150);
+      }
+      return NextResponse.json({ error: userFriendlyMessage }, { status: 500 });
     }
 
     const pdfBuffer = await response.arrayBuffer();
 
-    const { v4: uuidv4 } = require("uuid");
-    const { downloadCache } = require("@/lib/downloadCache");
-    
-    // We need to get title from the parsed JSON at the top
-    const id = uuidv4();
-    const filename = `${title || "resume"}.pdf`;
-
-    downloadCache.set(id, {
-      data: pdfBuffer,
-      contentType: "application/pdf",
-      filename: filename
+    return new Response(pdfBuffer, {
+      status: 200,
+      headers: {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": `attachment; filename="${encodeURIComponent(title || "resume")}.pdf"`,
+      },
     });
-
-    setTimeout(() => downloadCache.delete(id), 5 * 60 * 1000);
-
-    return NextResponse.json({ success: true, id });
   } catch (error: any) {
-    console.error("PDF generation error:", error);
-    return NextResponse.json({ error: `Internal server error: ${error.message}` }, { status: 500 });
+    return NextResponse.json({ error: `Server error: ${error.message}` }, { status: 500 });
   }
 }

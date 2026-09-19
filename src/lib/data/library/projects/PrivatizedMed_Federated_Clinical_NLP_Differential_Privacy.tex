@@ -1,0 +1,6 @@
+\item \textbf{PrivatizedMed: Federated Clinical NLP with Differential Privacy on Apple Silicon}
+\resumeItemListStart
+  \resumeItemWithoutTitle{Architected a Federated Learning framework using MLX and LoRA to fine-tune clinical LLMs across 5 simulated hospital clients, ensuring zero raw data leakage while collaboratively improving shared model weights}
+  \resumeItemWithoutTitle{Implemented DP-SGD with adaptive per-layer gradient clipping, achieving a Pareto-superior privacy-utility frontier vs fixed-norm baselines on MIMIC-III dataset (ICD coding) across varying privacy budgets $\epsilon \in [1, 8]$}
+  \resumeItemWithoutTitle{Optimized deployment via CoreML and 4-bit quantization, achieving 47 tokens/sec on MacBook Pro M4 with an 890MB footprint while maintaining clinical F1 scores within 1.8\% of centralized baselines}
+\resumeItemListEnd

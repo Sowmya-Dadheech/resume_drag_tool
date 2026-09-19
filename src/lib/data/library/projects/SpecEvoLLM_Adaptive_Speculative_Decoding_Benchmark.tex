@@ -1,0 +1,6 @@
+\item \textbf{SpecEvoLLM: Adaptive Speculative Decoding Benchmark Suite \& Optimizer}
+\resumeItemListStart
+  \resumeItemWithoutTitle{Architected an open-source benchmarking suite evaluating 5 speculative decoding strategies (EAGLE, Medusa, SpecTr) across Llama-3 and Mistral, quantifying trade-offs between token acceptance rate and wall-clock throughput on NVIDIA A100s}
+  \resumeItemWithoutTitle{Developed an input-adaptive draft model selector using a lightweight classifier to route prompts based on entropy and domain, achieving a 2.7x median speedup over static baselines by dynamically selecting optimal speculative method}
+  \resumeItemWithoutTitle{Optimized the verification-stage bottleneck as a TensorRT-LLM plugin after profiling with NVIDIA Nsight Systems, reducing P95 latency by 31\% and delivering hardware-aware performance gains for high-concurrency inference}
+\resumeItemListEnd

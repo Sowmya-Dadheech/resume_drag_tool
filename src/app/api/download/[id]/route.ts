@@ -10,9 +10,6 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
       return new NextResponse("Download link expired or invalid", { status: 404 });
     }
 
-    // Optionally delete it right away to make it a one-time use link
-    downloadCache.delete(id);
-
     const url = new URL(request.url);
     const isInline = url.searchParams.get("inline") === "true";
     const disposition = isInline ? "inline" : `attachment; filename="${item.filename}"`;

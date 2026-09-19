@@ -1,7 +1,7 @@
 export const DEFAULT_PREAMBLE = `
-\\documentclass[a4paper,9pt]{extarticle}
+\\documentclass[letterpaper,9.5pt]{article}
 \\usepackage{latexsym}
-\\usepackage[empty]{fullpage}
+\\usepackage[left=0.35in,right=0.35in,top=0.35in,bottom=0.35in]{geometry}
 \\usepackage{titlesec}
 \\usepackage{marvosym}
 \\usepackage[usenames,dvipsnames]{color}
@@ -17,52 +17,51 @@ export const DEFAULT_PREAMBLE = `
 \\renewcommand{\\headrulewidth}{0pt}
 \\renewcommand{\\footrulewidth}{0pt}
 
-\\addtolength{\\oddsidemargin}{-0.5in}
-\\addtolength{\\evensidemargin}{-0.5in}
-\\addtolength{\\textwidth}{1in}
-\\addtolength{\\topmargin}{-0.5in}
-\\addtolength{\\textheight}{1in}
-
 \\raggedbottom
 \\raggedright
 \\setlength{\\tabcolsep}{0in}
-\\setlist[itemize]{topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=1pt}
+
+% High density itemize spacing matching Niteesh's layout
+\\setlist[itemize]{topsep=1.5pt, partopsep=0pt, parsep=0.5pt, itemsep=1.5pt, leftmargin=1.1em}
 
 \\urlstyle{rm}
 
+% Section formatting matching Niteesh's uppercase sections with titlerule
 \\titleformat{\\section}{
-  \\vspace{-13pt}
+  \\vspace{-5pt}
   \\scshape\\raggedright\\large
 }{}{0em}{}[\\color{black}\\titlerule 
-\\vspace{-5pt}
+\\vspace{-3pt}
 ]
 
 \\newcommand{\\resumeItem}[2]{\\item \\textbf{#1}: #2}
 \\newcommand{\\resumeItemWithoutTitle}[1]{\\item #1}
 
+% Subheading formatting matching Niteesh's 2-line layout
 \\newcommand{\\resumeSubheading}[4]{
   \\item
-    \\begin{tabular*}{0.97\\textwidth}{l@{\\extracolsep{\\fill}}r}
+    \\begin{tabular*}{0.99\\textwidth}{l@{\\extracolsep{\fill}}r}
       \\textbf{#1} & #2 \\\\
       \\textit{#3} & \\textit{#4} \\\\
-    \\end{tabular*}
+    \\end{tabular*}\\vspace{-4pt}
 }
 
 \\newcommand{\\resumeSubheadingWithDetail}[5]{
   \\item
-    \\begin{tabular*}{\\textwidth}{l@{\\extracolsep{\\fill}}r}
+    \\begin{tabular*}{0.99\\textwidth}{l@{\extracolsep{\fill}}r}
       \\textbf{#1} & #2 \\\\
       \\textit{#3} & \\textit{#4} \\\\
     \\end{tabular*}
     #5
+    \\vspace{-4pt}
 }
 
 \\renewcommand{\\labelitemii}{$\\circ$}
 
-\\newcommand{\\resumeSubHeadingListStart}{\\begin{itemize}[leftmargin=*]}
-\\newcommand{\\resumeSubHeadingListEnd}{\\end{itemize}}
-\\newcommand{\\resumeItemListStart}{\\begin{itemize}}
-\\newcommand{\\resumeItemListEnd}{\\end{itemize}}
+\\newcommand{\\resumeSubHeadingListStart}{\\begin{itemize}[leftmargin=*,label={}]}
+\\newcommand{\\resumeSubHeadingListEnd}{\\end{itemize}\\vspace{-3pt}}
+\\newcommand{\\resumeItemListStart}{\\begin{itemize}[leftmargin=1.1em]}
+\\newcommand{\\resumeItemListEnd}{\\end{itemize}\\vspace{-2pt}}
 
 \\definecolor{linkblue}{HTML}{0077B5}
 \\hypersetup{
