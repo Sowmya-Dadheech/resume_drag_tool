@@ -5,7 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 function sanitizeLatex(latex: string): string {
   if (!latex) return "";
   let sanitized = latex;
-  // Auto-fix typo'd closing parenthesis on argument braces like }{Seattle, WA)
+  // Auto-fix typo'd closing parenthesis on argument braces like {Seattle, WA) or }{Seattle, WA)
+  sanitized = sanitized.replace(/({[^{}\n]+)\)(?=\s*(\\resumeItemListStart|\n|$))/g, "$1}");
   sanitized = sanitized.replace(/}\s*{([^}]+)\)/g, "}{$1}");
   // Replace math-mode pipe variations and double dashes for pdflatex font safety
   sanitized = sanitized.replace(/\$\|\$/g, " - ");
