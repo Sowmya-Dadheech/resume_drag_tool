@@ -204,7 +204,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
           ...p,
           blocks: p.blocks.map(b => {
             const fresh = loadedBlocks.find(lb => lb.title === b.title || (lb.type === b.type && lb.title.includes(b.title)));
-            return fresh ? { ...b, content: fresh.content } : b;
+            let raw = fresh ? fresh.content : b.content;
+            let clean = raw.replace(/}\s*{([^}]+)\)/g, "}{$1}").replace(/({[^{}\n]+)\)(?=\s*(\\resumeItemListStart|\n|$))/g, "$1}");
+            return { ...b, content: clean };
           })
         }));
         let activeId = savedState.activeProjectId;
