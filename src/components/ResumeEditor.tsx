@@ -177,15 +177,14 @@ export function ResumeEditor() {
         return;
       }
 
+      const blob = await response.blob();
+      const pdfBlob = new Blob([blob], { type: "application/pdf" });
+      const blobUrl = URL.createObjectURL(pdfBlob);
+      setPreviewPdfUrl(blobUrl);
+
       const pdfId = response.headers.get("X-PDF-Id");
       if (pdfId) {
         setPreviewPdfId(pdfId);
-        setPreviewPdfUrl(`/api/download/${pdfId}?inline=true`);
-      } else {
-        const blob = await response.blob();
-        const pdfBlob = new Blob([blob], { type: "application/pdf" });
-        const blobUrl = URL.createObjectURL(pdfBlob);
-        setPreviewPdfUrl(blobUrl);
       }
     } catch (error: any) {
       console.warn("PDF preview network info:", error);
